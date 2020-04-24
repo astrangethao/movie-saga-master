@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
 class MovieItem extends Component {
-  handleImgClick = (event) => {
-    this.props.history.push("/details");
+  handleImgClick = (id) => (event) => {
+    this.props.history.push(`/details/${id}`);
   };
 
   render() {
     return (
       <div>
         <img
-          onClick={this.handleImgClick}
+          onClick={this.handleImgClick(this.props.movie.id)}
           src={this.props.movie.poster}
           alt="poster"
         />
