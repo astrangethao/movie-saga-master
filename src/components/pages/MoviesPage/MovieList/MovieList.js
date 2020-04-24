@@ -5,6 +5,7 @@ import MovieItem from "../MovieItem/MovieItem";
 class MovieList extends Component {
   componentDidMount() {
     this.props.dispatch({ type: "GET_MOVIES" });
+    console.log(this.props.history);
   }
 
   render() {

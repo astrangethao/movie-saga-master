@@ -1,10 +1,19 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 class MovieItem extends Component {
+  handleImgClick = (event) => {
+    this.props.history.push("/details");
+  };
+
   render() {
     return (
       <div>
-        <img src={this.props.movie.poster} alt="poster" />
+        <img
+          onClick={this.handleImgClick}
+          src={this.props.movie.poster}
+          alt="poster"
+        />
         <br />
         <h2>{this.props.movie.title}</h2>
         <div>{this.props.movie.description}</div>
@@ -14,4 +23,4 @@ class MovieItem extends Component {
   }
 }
 
-export default MovieItem;
+export default withRouter(MovieItem);

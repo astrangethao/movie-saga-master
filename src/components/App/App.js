@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import MoviesPage from "../pages/MoviesPage/MoviesPage";
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
@@ -7,6 +7,7 @@ import EditPage from "../pages/EditPage/EditPage";
 
 class App extends Component {
   // Renders the entire app on the DOM
+
   render() {
     return (
       <div className="App">
