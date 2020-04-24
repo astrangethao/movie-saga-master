@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import MovieList from "./MovieList/MovieList";
 
 class MoviesPage extends Component {
   render() {
     return (
       <div>
-        <h1>Movies Page</h1>
+        <MovieList />
       </div>
     );
   }
