@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 class EditPage extends Component {
   state = {
     updatedMovie: {
+      id: Number(this.props.match.params.id),
       title: "",
       description: "",
     },
@@ -20,38 +21,32 @@ class EditPage extends Component {
     }
 
     if (name === "save") {
-      console.log("saved");
+      console.log(this.state.updatedMovie);
+      this.props.dispatch({
+        type: "UPDATE_MOVIES",
+        payload: this.state.updatedMovie,
+      });
     }
   };
 
   // create a handleChangeTitle to set state for title
   handleChangeTitle = (event) => {
-    this.setState(
-      {
-        updatedMovie: {
-          ...this.state.updatedMovie,
-          title: event.target.value,
-        },
+    this.setState({
+      updatedMovie: {
+        ...this.state.updatedMovie,
+        title: event.target.value,
       },
-      () => {
-        console.log(this.state);
-      }
-    );
+    });
   };
 
   // create a handleChangeDesc to set state for description
   handleChangeDesc = (event) => {
-    this.setState(
-      {
-        updatedMovie: {
-          ...this.state.updatedMovie,
-          description: event.target.value,
-        },
+    this.setState({
+      updatedMovie: {
+        ...this.state.updatedMovie,
+        description: event.target.value,
       },
-      () => {
-        console.log(this.state);
-      }
-    );
+    });
   };
 
   render() {

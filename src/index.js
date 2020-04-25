@@ -17,10 +17,20 @@ import axios from "axios";
 function* rootSaga() {
   yield takeEvery("GET_MOVIES", getMovies);
   yield takeEvery("GET_GENRES", getGenres);
+  yield takeEvery("UPDATE_MOVIES", updateMovies);
+}
+
+// Create updateMovies generator function
+function* updateMovies(action) {
+  try {
+    yield axios.put(`/api/movie/${action.payload.id}`, action.payload);
+    yield put({ type: "GET_GENRES" });
+  } catch (error) {
+    console.warn(`Error with updateMovies`, error);
+  }
 }
 
 // Create getMovies generator function
-
 function* getMovies(action) {
   try {
     const response = yield axios.get("/api/movie");
