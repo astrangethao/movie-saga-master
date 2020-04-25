@@ -23,8 +23,12 @@ class DetailsPage extends Component {
     const id = Number(this.props.match.params.id);
 
     //filter the object that matches the params.id
-    const movie = this.props.store.movies.filter(function (movie) {
+    const filteredMovie = this.props.store.movies.filter(function (movie) {
       return movie.id === id;
+    });
+
+    const filteredGenre = this.props.store.genres.filter(function (genre) {
+      return genre.id === id;
     });
 
     return (
@@ -33,11 +37,22 @@ class DetailsPage extends Component {
         <br />
         <button onClick={this.handleEditBtn}>Edit</button>
         <div>
-          {movie.map(function (kitty) {
+          {filteredMovie.map(function (movie) {
             return (
-              <div key={kitty.id}>
-                <h2>{kitty.title}</h2>
-                <p>{kitty.description}</p>
+              <div key={movie.id}>
+                <h2>{movie.title}</h2>
+                <p>{movie.description}</p>
+              </div>
+            );
+          })}
+        </div>
+        <br />
+        <div>
+          <h3>Genres</h3>
+          {filteredGenre.map(function (genre, index) {
+            return (
+              <div key={index}>
+                <p>{genre.genre_name}</p>
               </div>
             );
           })}
