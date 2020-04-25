@@ -39,6 +39,7 @@ class DetailsPage extends Component {
           variant="contained"
           color="secondary"
           onClick={this.handleBackBtn}
+          style={{ backgroundColor: "#222", margin: "10px" }}
         >
           Back To List
         </Button>
@@ -47,6 +48,7 @@ class DetailsPage extends Component {
           variant="contained"
           color="secondary"
           onClick={this.handleEditBtn}
+          style={{ backgroundColor: "#222", margin: "10px" }}
         >
           Edit
         </Button>

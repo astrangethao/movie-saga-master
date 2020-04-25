@@ -78,8 +78,9 @@ class EditPage extends Component {
             className="ebtn"
             variant="contained"
             color="secondary"
-            size="small"
+            size="large"
             onClick={this.handleBtn("cancel")}
+            style={{ backgroundColor: "#222", margin: "20px" }}
           >
             Cancel
           </Button>
@@ -89,8 +90,9 @@ class EditPage extends Component {
             variant="contained"
             color="secondary"
             onClick={this.handleBtn("save")}
+            style={{ color: "#222" }}
           >
-            <SaveIcon fontSize="large" />
+            Save <SaveIcon fontSize="large" />
           </IconButton>
         </div>
         <br />
@@ -100,14 +102,20 @@ class EditPage extends Component {
           label="Title"
           onChange={this.handleChangeTitle}
           value={movieTitle}
+          style={{ margin: "10px", width: "15%" }}
         />
-
-        <TextField
-          className="standard-basic"
-          label="Description"
-          onChange={this.handleChangeDesc}
-          value={movieDescription}
-        />
+        <div>
+          <TextField
+            className="standard-basic"
+            label="Description"
+            onChange={this.handleChangeDesc}
+            value={movieDescription}
+            style={{
+              margin: "10px",
+              width: "50%",
+            }}
+          />
+        </div>
       </div>
     );
   }
