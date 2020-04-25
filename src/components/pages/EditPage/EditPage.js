@@ -31,13 +31,6 @@ class EditPage extends Component {
         type: "UPDATE_MOVIES",
         payload: this.state.updatedMovie,
       });
-      this.setState({
-        updatedMovie: {
-          id: Number(this.props.match.params.id),
-          title: "",
-          description: "",
-        },
-      });
     }
   };
 
@@ -62,6 +55,20 @@ class EditPage extends Component {
   };
 
   render() {
+    const id = Number(this.props.match.params.id);
+
+    const filteredMovie = this.props.store.movies.filter((movie) => {
+      return movie.id === id;
+    });
+
+    const movieTitle = filteredMovie.map((info) => {
+      return info.title;
+    });
+
+    const movieDescription = filteredMovie.map((info) => {
+      return info.description;
+    });
+
     return (
       <div>
         <h1>Edit</h1>
@@ -92,14 +99,14 @@ class EditPage extends Component {
           className="standard-basic"
           label="Title"
           onChange={this.handleChangeTitle}
-          value={this.state.updatedMovie.title}
+          value={movieTitle}
         />
 
         <TextField
           className="standard-basic"
           label="Description"
           onChange={this.handleChangeDesc}
-          value={this.state.updatedMovie.description}
+          value={movieDescription}
         />
       </div>
     );
