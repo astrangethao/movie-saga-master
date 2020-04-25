@@ -2,23 +2,28 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class DetailsPage extends Component {
+  // get the movies from database on component load
   componentDidMount() {
     this.props.dispatch({ type: "GET_MOVIES" });
   }
 
+  // create the handleBackBtn method to send users back to movie page
+  handleBackBtn = (event) => {
+    this.props.history.push("/");
+  };
+
   render() {
+    // set value of the params id to variable id
     const id = Number(this.props.match.params.id);
 
+    //filter the object that matches the params.id
     const movie = this.props.store.movies.filter(function (movie) {
       return movie.id === id;
     });
 
-    console.log("filter:", movie);
-
     return (
       <div>
-        <h1>Details Pagessss</h1>
-        <button>Back To List</button>
+        <button onClick={this.handleBackBtn}>Back To List</button>
         <br />
         <button>Edit</button>
         <div>
