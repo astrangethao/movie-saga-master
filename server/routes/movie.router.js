@@ -20,9 +20,12 @@ router.get("/", (req, res) => {
 
 //create a GET route to get genre data from junction table
 router.get("/genre", (req, res) => {
-  const queryText = `SELECT movies.id, genres.name as "genre_name" FROM movies
-  JOIN movie_genre ON movies.id = movie_genre.movies_id
-  JOIN genres ON genres.id = movie_genre.genre_id;`;
+  const queryText = `SELECT movies.id, array_agg(name) as "movie_genres" FROM movies
+  JOIN movie_genre ON movie_genre.movies_id = movies.id
+  JOIN genres ON movie_genre.genre_id =genres.id 
+  GROUP BY movies.id
+  ORDER BY movies.id;
+  `;
 
   pool
     .query(queryText)

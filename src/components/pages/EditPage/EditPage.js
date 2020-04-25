@@ -89,17 +89,15 @@ class EditPage extends Component {
         <br />
 
         <TextField
-          id="standard-basic"
+          className="standard-basic"
           label="Title"
-          type="text"
           onChange={this.handleChangeTitle}
           value={this.state.updatedMovie.title}
         />
 
         <TextField
-          id="standard-basic"
+          className="standard-basic"
           label="Description"
-          type="text"
           onChange={this.handleChangeDesc}
           value={this.state.updatedMovie.description}
         />
