@@ -12,6 +12,11 @@ class DetailsPage extends Component {
     this.props.history.push("/");
   };
 
+  // creat the handleEditBtn method to send users to edit page
+  handleEditBtn = (event) => {
+    this.props.history.push("/edit");
+  };
+
   render() {
     // set value of the params id to variable id
     const id = Number(this.props.match.params.id);
@@ -25,7 +30,7 @@ class DetailsPage extends Component {
       <div>
         <button onClick={this.handleBackBtn}>Back To List</button>
         <br />
-        <button>Edit</button>
+        <button onClick={this.handleEditBtn}>Edit</button>
         <div>
           {movie.map(function (kitty) {
             return (
