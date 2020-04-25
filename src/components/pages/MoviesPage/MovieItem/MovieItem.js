@@ -15,7 +15,7 @@ class MovieItem extends Component {
 
   render() {
     return (
-      <Grid item xs={6} sm={4}>
+      <Grid item xs={6} sm={3}>
         <Card
           variant="outlined"
           style={{
@@ -30,7 +30,12 @@ class MovieItem extends Component {
               alt="poster"
             />
 
-            <CardContent>
+            <CardContent
+              style={{
+                backgroundColor: "#fffdf9",
+                color: "black",
+              }}
+            >
               <h1>{this.props.movie.title}</h1>
               <div>{this.props.movie.description}</div>
             </CardContent>
