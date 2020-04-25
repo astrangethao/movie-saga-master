@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import MovieItem from "../MovieItem/MovieItem";
-
+import Grid from "@material-ui/core/Grid";
 class MovieList extends Component {
   componentDidMount() {
     this.props.dispatch({ type: "GET_MOVIES" });
@@ -10,9 +10,11 @@ class MovieList extends Component {
   render() {
     return (
       <div>
-        {this.props.store.movies.map((movie) => {
-          return <MovieItem key={movie.id} movie={movie} />;
-        })}
+        <Grid container spacing={2}>
+          {this.props.store.movies.map((movie) => {
+            return <MovieItem key={movie.id} movie={movie} />;
+          })}
+        </Grid>
       </div>
     );
   }
