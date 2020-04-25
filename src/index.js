@@ -16,6 +16,7 @@ import axios from "axios";
 // Create the rootSaga generator function
 function* rootSaga() {
   yield takeEvery("GET_MOVIES", getMovies);
+  yield takeEvery("GET_GENRES", getGenres);
 }
 
 // Create getMovies generator function
@@ -26,6 +27,16 @@ function* getMovies(action) {
     yield put({ type: "SET_MOVIES", payload: response.data });
   } catch (error) {
     console.warn(`Error with getMovies`, error);
+  }
+}
+
+// Creat getGenres generator function
+function* getGenres(action) {
+  try {
+    const response = yield axios.get("/api/movie/genre");
+    yield put({ type: "SET_GENRES", payload: response.data });
+  } catch (error) {
+    console.warn(`Error with getGenres`, error);
   }
 }
 

@@ -5,6 +5,7 @@ class DetailsPage extends Component {
   // get the movies from database on component load
   componentDidMount() {
     this.props.dispatch({ type: "GET_MOVIES" });
+    this.props.dispatch({ type: "GET_GENRES" });
   }
 
   // create the handleBackBtn method to send users back to movie page

@@ -30,7 +30,7 @@ router.get("/genre", (req, res) => {
       res.send(response.rows);
     })
     .catch((error) => {
-      console.warn(`Error in SELECT movie query`, error);
+      console.warn(`Error in SELECT genre query`, error);
       res.sendStatus(500);
     });
 });
