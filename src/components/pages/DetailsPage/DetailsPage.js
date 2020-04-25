@@ -14,7 +14,7 @@ class DetailsPage extends Component {
 
   // creat the handleEditBtn method to send users to edit page
   handleEditBtn = (event) => {
-    this.props.history.push("/edit");
+    this.props.history.push(`/edit/${this.props.match.params.id}`);
   };
 
   render() {
