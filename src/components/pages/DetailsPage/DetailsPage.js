@@ -27,6 +27,7 @@ class DetailsPage extends Component {
       return movie.id === id;
     });
 
+    //filter the object(s) that matches the params.id
     const filteredGenre = this.props.store.genres.filter(function (genre) {
       return genre.id === id;
     });
