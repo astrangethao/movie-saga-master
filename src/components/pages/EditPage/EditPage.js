@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import SaveIcon from "@material-ui/icons/Save";
+import TextField from "@material-ui/core/TextField";
+import "./EditPage.css";
 
 class EditPage extends Component {
   state = {
@@ -25,6 +30,13 @@ class EditPage extends Component {
       this.props.dispatch({
         type: "UPDATE_MOVIES",
         payload: this.state.updatedMovie,
+      });
+      this.setState({
+        updatedMovie: {
+          id: Number(this.props.match.params.id),
+          title: "",
+          description: "",
+        },
       });
     }
   };
@@ -55,24 +67,42 @@ class EditPage extends Component {
         <h1>Edit</h1>
         <br />
         <div>
-          <button onClick={this.handleBtn("cancel")}>Cancel</button>
-          <button onClick={this.handleBtn("save")}>Save</button>
+          <Button
+            className="ebtn"
+            variant="contained"
+            color="secondary"
+            size="small"
+            onClick={this.handleBtn("cancel")}
+          >
+            Cancel
+          </Button>
+
+          <IconButton
+            className="ebtn"
+            variant="contained"
+            color="secondary"
+            onClick={this.handleBtn("save")}
+          >
+            <SaveIcon fontSize="large" />
+          </IconButton>
         </div>
         <br />
-        <div>
-          <input
-            type="text"
-            onChange={this.handleChangeTitle}
-            placeholder="title"
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            onChange={this.handleChangeDesc}
-            placeholder="description"
-          />
-        </div>
+
+        <TextField
+          id="standard-basic"
+          label="Title"
+          type="text"
+          onChange={this.handleChangeTitle}
+          value={this.state.updatedMovie.title}
+        />
+
+        <TextField
+          id="standard-basic"
+          label="Description"
+          type="text"
+          onChange={this.handleChangeDesc}
+          value={this.state.updatedMovie.description}
+        />
       </div>
     );
   }

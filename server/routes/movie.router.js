@@ -5,7 +5,7 @@ const router = express.Router();
 
 //create a GET route to get data from movie table
 router.get("/", (req, res) => {
-  const queryText = `SELECT * FROM movies`;
+  const queryText = `SELECT * FROM movies ORDER by id`;
 
   pool
     .query(queryText)

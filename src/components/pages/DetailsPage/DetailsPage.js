@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Button from "@material-ui/core/Button";
 
 class DetailsPage extends Component {
   // get the movies from database on component load
@@ -34,9 +35,22 @@ class DetailsPage extends Component {
 
     return (
       <div>
-        <button onClick={this.handleBackBtn}>Back To List</button>
-        <br />
-        <button onClick={this.handleEditBtn}>Edit</button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={this.handleBackBtn}
+        >
+          Back To List
+        </Button>
+
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={this.handleEditBtn}
+        >
+          Edit
+        </Button>
+
         <div>
           {filteredMovie.map(function (movie) {
             return (
