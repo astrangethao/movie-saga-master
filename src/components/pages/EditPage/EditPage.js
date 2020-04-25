@@ -15,6 +15,7 @@ class EditPage extends Component {
       console.log("saved");
     }
   };
+
   render() {
     return (
       <div>
