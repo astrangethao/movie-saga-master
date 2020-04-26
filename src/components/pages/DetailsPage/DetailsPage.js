@@ -5,7 +5,6 @@ import Button from "@material-ui/core/Button";
 class DetailsPage extends Component {
   // get the movies from database on component load
   componentDidMount() {
-    this.props.dispatch({ type: "GET_MOVIES" });
     this.props.dispatch({ type: "GET_GENRES" });
   }
 
@@ -63,7 +62,9 @@ class DetailsPage extends Component {
             );
           })}
         </div>
+
         <br />
+
         <div>
           <h3>Genres</h3>
           {filteredGenre.map((genre) => {

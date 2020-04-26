@@ -10,7 +10,7 @@ class MovieList extends Component {
   render() {
     return (
       <div>
-        <Grid container spacing={2}>
+        <Grid container>
           {this.props.store.movies.map((movie) => {
             return <MovieItem key={movie.id} movie={movie} />;
           })}
