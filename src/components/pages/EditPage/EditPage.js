@@ -9,7 +9,7 @@ import "./EditPage.css";
 class EditPage extends Component {
   state = {
     updatedMovie: {
-      id: Number(this.props.match.params.id),
+      id: "",
       title: "",
       description: "",
     },
@@ -26,7 +26,7 @@ class EditPage extends Component {
     }
 
     if (name === "save") {
-      console.log(this.state.updatedMovie);
+      alert("saved!");
       this.props.dispatch({
         type: "UPDATE_MOVIES",
         payload: this.state.updatedMovie,
@@ -55,19 +55,29 @@ class EditPage extends Component {
   };
 
   render() {
-    const id = Number(this.props.match.params.id);
+    // const id = Number(this.props.match.params.id);
 
-    const filteredMovie = this.props.store.movies.filter((movie) => {
-      return movie.id === id;
-    });
+    // const filteredMovie = this.props.store.movies.filter((movie) => {
+    //   return movie.id === id;
+    // });
 
-    const movieTitle = filteredMovie.map((info) => {
-      return info.title;
-    });
+    // const movieTitle = filteredMovie.map((info) => {
+    //   return info.title;
+    // });
 
-    const movieDescription = filteredMovie.map((info) => {
-      return info.description;
-    });
+    // const movieDescription = filteredMovie.map((info) => {
+    //   return info.description;
+    // });
+
+    // handleState = () => {
+    //   this.setState({
+    //     updatedMovie: {
+    //       id: id,
+    //       title: movieTitle,
+    //       description: movieDescription,
+    //     },
+    //   });
+    // };
 
     return (
       <div>
@@ -101,7 +111,7 @@ class EditPage extends Component {
           className="standard-basic"
           label="Title"
           onChange={this.handleChangeTitle}
-          value={movieTitle}
+          // value={this.state.updatedMovie.title}
           style={{ margin: "10px", width: "15%" }}
         />
         <div>
@@ -109,7 +119,6 @@ class EditPage extends Component {
             className="standard-basic"
             label="Description"
             onChange={this.handleChangeDesc}
-            value={movieDescription}
             style={{
               margin: "10px",
               width: "50%",
