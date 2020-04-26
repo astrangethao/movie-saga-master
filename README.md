@@ -19,7 +19,7 @@ View database.sql file for database set-up.
 ## Screen Shots
 
 ![screenshot](wireframes/movies.jpeg)
-![screenshot](wireframes/detalils.jpeg)
+![screenshot](wireframes/details.jpeg)
 ![screenshot](wireframes/edit.jpeg)
 
 ## Prerequisites
@@ -30,6 +30,10 @@ View database.sql file for database set-up.
 - Saga
 - SQL
 - material-ui
+
+## License
+
+This project is licensed under the MIT License
 
 ## Acknowledgement
 
